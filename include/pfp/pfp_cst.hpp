@@ -83,6 +83,11 @@ public :
     {
       return ((this->l != b.l) or (this->r != b.r));
     }
+
+        bool operator==(const struct node &b)const
+        {
+            return ((this->l == b.l) && (this->r == b.r));
+        }
   } node_t;
 
   // The root of the suffix tree
@@ -139,7 +144,9 @@ public :
     size_t h = max(lcp_l, lcp_r);
     const auto p = prev(v.l + 1, h);
     const auto n = next(v.r, h);
-
+        if (v == root()){
+            return {0, 0};
+        }
     return {p.second, n.second - 1};
     // if (p.first and n.first)
     //   return {p.second, n.second - 1};
