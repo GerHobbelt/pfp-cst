@@ -30,12 +30,15 @@
 #include <ctime>
 #include <assert.h>
 
+#ifndef MSVC_COMPILER
 #include <sys/time.h>
 
 #include <sys/mman.h> // for mmap
 #include <unistd.h>
 #include <sys/stat.h>
- #include <fcntl.h>
+#endif
+
+#include <fcntl.h>
 
 #include <sstream>      // std::stringstream
 
